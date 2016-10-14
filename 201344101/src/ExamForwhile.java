@@ -52,7 +52,7 @@ public class ExamForwhile {
 		else if(menu == 5)
 		{
 		GuGuDan2 g = new GuGuDan2();
-		g.gustart2();
+		g.gustart();
 		}
 
 		else if(menu == 6)
@@ -67,6 +67,7 @@ class SumOfNumber extends ExamForwhile{
 	int c=0;
 	int number=0;
 	int result=0;
+	
 	public static void main()
 	{
 		new SumOfNumber().sumstart();
@@ -77,19 +78,20 @@ class SumOfNumber extends ExamForwhile{
 	System.out.println("###1부터 입력한 수까지 더하기");
 	Scanner s = new Scanner(System.in);
 	System.out.print("마지막 수를 입력((0)입력시 종료.):");
-	this.number = s.nextInt();
-
+	number = s.nextInt();
+	while(true)
+	{
 	if(number<1 || number>1000)
 	{
 		System.out.println("종료되었습니다. ");
-		sumprint();
+		System.exit(0);
 	}
 	
 	for(int j=1;j<=number;j++)
 	{
 		result +=j;
 	}
-
+	}
 	
 	}
 	void sumprint()
@@ -115,12 +117,13 @@ class MaxAndMin extends ExamForwhile{
 		System.out.println("최대값/최소값 구하기");				
 		for(int i=0;i<100;i++)
 		{
-
+			boolean p = true;
+			while(p)
 			System.out.println("0~100의 수를 입력하세요(Q:종료)");	
 			Scanner s = new Scanner(System.in);
 			intArr[i] = s.nextInt();
-	
-				   if(i==1)
+
+				if(i==1)
 				min=intArr[0];
 					else if(intArr[i]>max)
 					{
@@ -131,7 +134,7 @@ class MaxAndMin extends ExamForwhile{
 						min=intArr[i];				
 					}	
 			
-
+			
 		
 		
 		}
@@ -150,7 +153,7 @@ class MaxAndMin extends ExamForwhile{
 class SumAndAvg extends ExamForwhile{
 	int sum,number,avg=0;
 	double cnt=0;
-	
+	boolean p = true;
 	public static void main()
 	{
 		new SumAndAvg().sumstart();
@@ -161,27 +164,30 @@ class SumAndAvg extends ExamForwhile{
 	System.out.println("###입력받은숫자의 합계와 평균 구하기");
 	Scanner s = new Scanner(System.in);
 	System.out.print("숫자를 입력(Q:종료):");
-	while(true)
+	while(p)
 	{
-		number = s.nextInt();
-		if(s.equals("Q") || number<0)
+		this.number = s.nextInt();
+		if(number != 0)
 		{
-			break;
+			sum += number;
+			cnt++;
 		}
 		else
 		{
-
+			p = false;
 		}
+
 	}
-	sumprint();
+
 	
 	}
 	void sumprint()
 	{
-	System.out.println("합계는"+sum+"이고 평균운"+sum/cnt+"입니다.");
+	System.out.println("합계는"+sum+"이고 평균운"+sum/(cnt-1)+"입니다.");
 	}	
 }
-class GuGuDan extends ExamForwhile{
+class GuGuDan extends ExamForwhile {
+	
 	int number,ppp =0;
 	public static void main()
 	{
@@ -190,59 +196,67 @@ class GuGuDan extends ExamForwhile{
 	
 	void gustart()
 	{
-
+		while(true)
+		{
 			Scanner s = new Scanner(System.in);
-
-			System.out.print("출력하고 싶은 단:>>");
+			Scanner f = new Scanner(System.in);
+			
+			System.out.print("출력하고 싶은 단(Q:종료):>>");
 			number = s.nextInt();
+			
 			if(s.equals("Q") || 0>number || 12<number )
 			{
-				System.out.println("잘못입력");
-				return;
+				break;
 			}
 			else
 			{	
 			for(int i =1;i<10;i++)
 			System.out.println(number +"*"+i+"="+number*i+"");			
 			}
-				
+		}		
 	}
 }
-class GuGuDan2 extends ExamForwhile{
-	int number,ppp =0;
-	String kind = "";
+class GuGuDan2 extends ExamForWwile{
+	String number;
+
 	public static void main()
 	{
-		new GuGuDan2().gustart2();
+		new GuGuDan2().gustart();
 	}
 	
-	void gustart2()
+	void gustart()
 	{
-
-			Scanner cs = new Scanner(System.in);
-			System.out.print("E:짝수단,O:홀수단:>>");
-			this.kind = cs.next();
-			if(cs.equals("E"))
-			{	
-		        for (int j = 2; j <= 9; j=j+2) 
-		        {
-		       for (int i = 1; i <= 9; i++) 
-		       {
-		    	   System.out.println(j + " x " + i + " = " + i * j);
-		       }
-			    }
+		while(true)
+		{
+			Scanner s = new Scanner(System.in);
+			Scanner f = new Scanner(System.in);
+			System.out.println("짝수단(E),홀수단(O)(Q:종");
+			this.number = s.nextLine();
+			if(s.equals("O"))
+			{
+			for(int i=2;i<9;i=i+2)
+			{
+			for(int j=1;j<10;j++)
+			{
+				System.out.println(i+"*"+j+"="+i*j);
 			}
-		        else if(cs.equals("O"))
-		        {
-		        	for (int j = 1; j <= 9; j=j+2) {
-			            for (int i = 1; i <= 9; i++) 
-			            {
-			                System.out.println(j + " x " + i + " = " + i * j);
-			            }
-				}	
-		        }
-		        else
-		        	return;
+			}
+			}
+			else if(s.equals("F"))
+			{
+				for(int i=2;i<9;i=i+2)
+			{
+			for(int j=0;j<10;j++)
+			{
+				System.out.println(i+"*"+j+"="+i*j);
+			}
+			}
 				
+			}
+			else if(s.equals("Q"))
+			{
+			
+		}		
 	}
+}
 }
