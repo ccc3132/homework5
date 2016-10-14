@@ -2,8 +2,8 @@ package homework5;
 
 public class ExamForWhile {
 
-	public void main(String args[])
+	public static void main(String args[])
 	{
-		
+		System.out.println("안녕하세요");
 	}
 }
