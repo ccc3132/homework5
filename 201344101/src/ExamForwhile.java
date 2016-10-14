@@ -81,7 +81,8 @@ class SumOfNumber extends ExamForwhile{
 	number = s.nextInt();
 	while(true)
 	{
-	if(number<1 || number>1000)
+		
+	if(s.next().equals("Q"))
 	{
 		System.out.println("종료되었습니다. ");
 		System.exit(0);
@@ -103,31 +104,35 @@ class SumOfNumber extends ExamForwhile{
 }
 
 class MaxAndMin extends ExamForwhile{
-	int max=0;
+	int a = 0;
+	   int max =0; 
+	   int min=100;
+	   String b = "";
+	   Scanner s = new Scanner(System.in);
+	   
+	   void maxstart(){
+		   
+	    while (true) {
 
-	int min=0;
-	int intArr[];
-	public static void main()
-	{
-		new MaxAndMin().maxstart();
-	}
-	
-	void maxstart()
-	{
-		boolean p = true;
-		System.out.println("최대값/최소값 구하기");				
-		{
-		
-		}
-		
-	
-	
-	}
-	void maxprint()
-	{
-		System.out.println("가장 큰 수는"+max+"입니다.");
-		System.out.println("가장 작은 수는"+min+"입니다.");
-	}
+	     System.out.print("0~100사이의 숫자를 입력(Q:종료) >> ");
+	     b = s.next();
+	     if(b.equals("Q")) {
+	      break;
+	     }
+	     if(Integer.parseInt(b) > max){ 
+	      max = Integer.parseInt(b); 
+	     }
+	     
+	    
+	     if(Integer.parseInt(b) < min){
+	      min = Integer.parseInt(b);
+	     } 
+	    }
+	   }
+	    void maxprint()
+	    {
+	    System.out.println("가장 큰수는 " +max+"이고,"+" 작은 수는 "+min+"입니다.");
+	    }
 }
 
 
@@ -145,15 +150,17 @@ class SumAndAvg extends ExamForwhile{
 	System.out.println("###입력받은숫자의 합계와 평균 구하기");
 	Scanner s = new Scanner(System.in);
 	System.out.print("숫자를 입력(Q:종료):");
+	
 	while(p)
 	{
-		this.number = s.nextInt();
-		if(number != 0)
+
+		if((s.hasNextInt()))
 		{
+			this.number = s.nextInt();
 			sum += number;
 			cnt++;
 		}
-		else
+		else if(s.next().equals("Q"))
 		{
 			
 			p = false;
@@ -165,7 +172,7 @@ class SumAndAvg extends ExamForwhile{
 	}
 	void sumprint()
 	{
-	System.out.println("합계는"+sum+"이고 평균운"+sum/(cnt-1)+"입니다.");
+	System.out.println("합계는"+sum+"이고 평균운"+sum/cnt+"입니다.");
 	}	
 }
 class GuGuDan extends ExamForwhile {
@@ -186,7 +193,7 @@ class GuGuDan extends ExamForwhile {
 			System.out.print("출력하고 싶은 단(Q:종료):>>");
 			number = s.nextInt();
 			
-			if(s.equals("Q") || 0>number || 12<number )
+			if(s.next().equals("Q") || 0>number || 12<number )
 			{
 				break;
 			}
@@ -208,37 +215,34 @@ class GuGuDan2 extends ExamForwhile{
 	
 	void gustart()
 	{
-		while(true)
-		{
-			Scanner s = new Scanner(System.in);
-			Scanner f = new Scanner(System.in);
-			System.out.println("짝수단(E),홀수단(O)(Q:종");
-			this.number = s.nextLine();
-			if(s.equals("O"))
-			{
-			for(int i=2;i<9;i=i+2)
-			{
-			for(int j=1;j<10;j++)
-			{
-				System.out.println(i+"*"+j+"="+i*j);
-			}
-			}
-			}
-			else if(s.equals("F"))
-			{
-				for(int i=2;i<9;i=i+2)
-			{
-			for(int j=0;j<10;j++)
-			{
-				System.out.println(i+"*"+j+"="+i*j);
-			}
-			}
-				
-			}
-			else if(s.equals("Q"))
-			{
-			
-		}		
-	}
-}
+		Scanner s = new Scanner(System.in);
+		  while(true){
+		   System.out.print("E짝수단, O홀수단(Q종료) >> ");
+		   String a = s.nextLine();
+		   switch(a){
+		   case "E":
+		    for(int j=2; j<10; j=j+2){
+		     System.out.println("");
+		    for(int i=1; i<10; i++){
+		     int result = j *i;
+		     System.out.print(j+"*"+i+"="+result+"  ");
+		    }
+		    }
+		    break;
+		   case "O":
+		    for(int j=3; j<10; j=j+2){
+		     System.out.println("");
+		     for(int i=1; i<10; i++){
+		      int result = j *i;
+		      System.out.print(j+"*"+i+"="+result+"  ");
+		     }
+		     }
+		     break;
+		   }if(s.next().equals("Q")){
+			System.out.print("종료되었습니다.");
+		    break;
+		   }
+		  }
+		 }
+	
 }
