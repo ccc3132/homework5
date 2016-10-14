@@ -216,7 +216,7 @@ class GuGuDan extends ExamForwhile {
 		}		
 	}
 }
-class GuGuDan2 extends ExamForWwile{
+class GuGuDan2 extends ExamForwhile{
 	String number;
 
 	public static void main()
