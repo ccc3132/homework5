@@ -114,28 +114,9 @@ class MaxAndMin extends ExamForwhile{
 	
 	void maxstart()
 	{
+		boolean p = true;
 		System.out.println("최대값/최소값 구하기");				
-		for(int i=0;i<100;i++)
 		{
-			boolean p = true;
-			while(p)
-			System.out.println("0~100의 수를 입력하세요(Q:종료)");	
-			Scanner s = new Scanner(System.in);
-			intArr[i] = s.nextInt();
-
-				if(i==1)
-				min=intArr[0];
-					else if(intArr[i]>max)
-					{
-						max=intArr[i];				
-					}
-					else if(intArr[i]<min)
-					{
-						min=intArr[i];				
-					}	
-			
-			
-		
 		
 		}
 		
@@ -174,6 +155,7 @@ class SumAndAvg extends ExamForwhile{
 		}
 		else
 		{
+			
 			p = false;
 		}
 
