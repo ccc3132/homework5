@@ -29,7 +29,7 @@ public class ExamForwhile {
 		{
 		SumOfNumber s =new SumOfNumber();
 		s.sumstart();
-		s.sumprint();
+	
 		}
 		else if(menu == 2)
 		{
@@ -77,28 +77,26 @@ class SumOfNumber extends ExamForwhile{
 	{
 	System.out.println("###1부터 입력한 수까지 더하기");
 	Scanner s = new Scanner(System.in);
-	System.out.print("마지막 수를 입력((0)입력시 종료.):");
+	System.out.print("마지막 수를 입력:");
 	number = s.nextInt();
 	while(true)
-	{
-		
-	if(s.next().equals("Q"))
-	{
-		System.out.println("종료되었습니다. ");
-		System.exit(0);
-	}
-	
-	for(int j=1;j<=number;j++)
-	{
-		result +=j;
-	}
-	}
-	
-	}
-	void sumprint()
-	{
+	{	
+		for(int j=1;j<=number;j++)
+		{
+			result +=j;
+		}
 		System.out.print("총합은"+result+"입니다.");
+		if(s.next().equals("Q"))
+		{
+			return;
+		}	
+
+
+	
 	}
+	
+	}
+
 	
 
 }
@@ -160,7 +158,7 @@ class SumAndAvg extends ExamForwhile{
 			sum += number;
 			cnt++;
 		}
-		else if(s.next().equals("Q"))
+		else if(s.equals("Q"))
 		{
 			
 			p = false;
@@ -192,16 +190,15 @@ class GuGuDan extends ExamForwhile {
 			
 			System.out.print("출력하고 싶은 단(Q:종료):>>");
 			number = s.nextInt();
-			
-			if(s.next().equals("Q") || 0>number || 12<number )
+			for(int i =1;i<10;i++)
+			{
+				System.out.println(number +"*"+i+"="+number*i+"");			
+			}
+				if(s.next().equals("Q") || 0>number || 12<number )
 			{
 				break;
 			}
-			else
-			{	
-			for(int i =1;i<10;i++)
-			System.out.println(number +"*"+i+"="+number*i+"");			
-			}
+
 		}		
 	}
 }
