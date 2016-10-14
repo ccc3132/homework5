@@ -77,7 +77,7 @@ class SumOfNumber extends ExamForwhile{
 	{
 	System.out.println("###1부터 입력한 수까지 더하기");
 	Scanner s = new Scanner(System.in);
-	System.out.print("마지막 수를 입력:");
+	System.out.print("마지막 수를 입력(Q입력시종료):");
 	number = s.nextInt();
 	while(true)
 	{	
@@ -88,7 +88,7 @@ class SumOfNumber extends ExamForwhile{
 		System.out.print("총합은"+result+"입니다.");
 		if(s.next().equals("Q"))
 		{
-			return;
+			break;
 		}	
 
 
